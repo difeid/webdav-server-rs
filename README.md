@@ -1,4 +1,4 @@
-# WEBDAV-SERVER
+# WebDAV server
 
 An implementation of a webdav server with support for user accounts,
 and switching uid/gid to those users accounts. That last feature
@@ -39,6 +39,18 @@ For example, to build on OpenBSD, which does not have pam:
 cargo build --release --no-default-features --features=quota
 ```
 
+## Docker Usage.
+
+To run the `webdav-server-rs` with Docker, use the following command. It exposes the desired port using `-p`, mounts your data directory with `-v`, and optionally mounts a configuration directory containing the `webdav-server.toml` file. If no configuration is mounted, the server will use default settings.
+
+```sh
+docker run -d \
+  -p 4918:4918 \
+  -v /path/to/data:/var/www/html \
+  -v /path/to/config:/config \
+  difeid/webdav-server-rs:latest
+```
+
 ## Configuration.
 
 See the [example webdav-server.toml file](webdav-server.toml)
@@ -57,4 +69,3 @@ aforementioned frontend proxies.
  * © 2018, 2019 XS4ALL Internet bv
  * © 2018, 2019 Miquel van Smoorenburg
  * [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
-
