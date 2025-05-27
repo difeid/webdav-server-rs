@@ -24,9 +24,9 @@
 # on the [[location]] level.
 #
 [accounts]
-  # how to authenticate: pam, htaccess.NAME (default: unset).
+  # how to authenticate: pam, htpasswd.NAME (default: pam).
   auth-type = "pam"
-  # what account "database" to use (default: unset).
+  # what account "database" to use (default: unix).
   acct-type = "unix"
   # realm to use with basic authentication (default: "Webdav Server").
   realm = "Webdav Server"
@@ -45,9 +45,9 @@
 #
 # Htpasswd authentication settings.
 #
-[htpasswd.example]
+[htpasswd.webdav]
   # htpasswd file.
-  htpasswd = "/etc/htpasswd.example"
+  htpasswd = "/etc/htpasswd.webdav"
 
 # Unix account settings.
 #
@@ -56,6 +56,9 @@
   cache-timeout = 120
   # Accounts with a user-id lower than this value cannot login (default: 0).
   min-uid = 1000
+  # Supplementary groups (default: false)
+  supplementary-groups = false
+
 
 #
 # Below follow a number of locations. Each location definition starts with
@@ -93,7 +96,7 @@
   # If there is no route defined, the location is ignored.
   route = [ "/*path" ]
 
-  # Allowed methods (default: all).
+  # Allowed methods (default: webdav-ro).
   #
   # List of individual methods, or one of:
   #
@@ -108,7 +111,7 @@
   #
   # "opportunistic": means "if you send an Authorization: header, we'll check it".
   # "write": means "for methods in webdav-rw that are not in webdav-ro".
-  auth = "false"
+  auth = "opportunistic"
 
   # Type of handler: filesystem, virtroot. Mandatory.
   #

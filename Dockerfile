@@ -23,6 +23,7 @@ COPY webdav-server.toml /config/
 
 LABEL org.opencontainers.image.url="https://github.com/difeid/webdav-server-rs" \
       org.opencontainers.image.title="WebDAV server" \
+      org.opencontainers.image.version="0.5.1" \
       org.opencontainers.image.licenses="Apache-2.0" \
       org.opencontainers.image.ref.name="difeid/webdav-server-rs"
 
