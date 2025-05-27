@@ -1,4 +1,4 @@
-#![doc(html_root_url = "https://docs.rs/webdav-server/0.5.1")]
+#![doc(html_root_url = "https://docs.rs/webdav-server/0.5.2")]
 //! # `webdav-server` is a webdav server that handles user-accounts.
 //!
 //! This is a webdav server that allows access to a users home directory,
@@ -378,7 +378,7 @@ impl Server {
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     // command line option processing.
     let matches = clap_app!(webdav_server =>
-        (version: "0.5.1")
+        (version: "0.5.2")
         (@arg CFG: -c --config +takes_value "configuration file (/etc/webdav-server.toml)")
         (@arg PORT: -p --port +takes_value "listen to this port on localhost only")
         (@arg DBG: -D --debug "enable debug level logging")
