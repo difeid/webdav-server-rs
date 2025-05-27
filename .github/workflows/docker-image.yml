@@ -23,4 +23,4 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64
           push: true
-          tags: difeid/webdav-server-rs:0.5.1,difeid/webdav-server-rs:latest
+          tags: difeid/webdav-server-rs:0.5.2,difeid/webdav-server-rs:latest
