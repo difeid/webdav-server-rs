@@ -1,4 +1,4 @@
-FROM rust:1.82.0-slim AS build
+FROM rust:1.93.1-slim AS build
 
 RUN apt-get update && apt-get install -y \
     build-essential \
@@ -11,7 +11,7 @@ COPY ./ ./
 
 RUN cargo build --locked --release && cargo install --path .
 
-FROM debian:bookworm-slim
+FROM debian:trixie-slim
 RUN apt-get update && apt-get install -y \
     libpam0g \
     libtirpc3 \
