@@ -1,4 +1,4 @@
-FROM rust:1.93.1-slim AS build
+FROM rust:1.95.0-slim-trixie AS build
 
 RUN apt-get update && apt-get install -y \
     build-essential \
@@ -23,7 +23,7 @@ COPY webdav-server.toml /config/
 
 LABEL org.opencontainers.image.url="https://github.com/difeid/webdav-server-rs" \
       org.opencontainers.image.title="WebDAV server" \
-      org.opencontainers.image.version="0.5.2" \
+      org.opencontainers.image.version="0.5.3" \
       org.opencontainers.image.licenses="Apache-2.0" \
       org.opencontainers.image.ref.name="difeid/webdav-server-rs"
 

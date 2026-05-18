@@ -45,11 +45,11 @@ impl UserFs {
 }
 
 impl DavFileSystem for UserFs {
-    fn metadata<'a>(&'a self, path: &'a DavPath) -> FsFuture<Box<dyn DavMetaData>> {
+    fn metadata<'a>(&'a self, path: &'a DavPath) -> FsFuture<'a, Box<dyn DavMetaData>> {
         self.fs.metadata(path)
     }
 
-    fn symlink_metadata<'a>(&'a self, path: &'a DavPath) -> FsFuture<Box<dyn DavMetaData>> {
+    fn symlink_metadata<'a>(&'a self, path: &'a DavPath) -> FsFuture<'a, Box<dyn DavMetaData>> {
         self.fs.symlink_metadata(path)
     }
 
@@ -57,37 +57,37 @@ impl DavFileSystem for UserFs {
         &'a self,
         path: &'a DavPath,
         meta: ReadDirMeta,
-    ) -> FsFuture<FsStream<Box<dyn DavDirEntry>>>
+    ) -> FsFuture<'a, FsStream<Box<dyn DavDirEntry>>>
     {
         self.fs.read_dir(path, meta)
     }
 
-    fn open<'a>(&'a self, path: &'a DavPath, options: OpenOptions) -> FsFuture<Box<dyn DavFile>> {
+    fn open<'a>(&'a self, path: &'a DavPath, options: OpenOptions) -> FsFuture<'a, Box<dyn DavFile>> {
         self.fs.open(path, options)
     }
 
-    fn create_dir<'a>(&'a self, path: &'a DavPath) -> FsFuture<()> {
+    fn create_dir<'a>(&'a self, path: &'a DavPath) -> FsFuture<'a, ()> {
         self.fs.create_dir(path)
     }
 
-    fn remove_dir<'a>(&'a self, path: &'a DavPath) -> FsFuture<()> {
+    fn remove_dir<'a>(&'a self, path: &'a DavPath) -> FsFuture<'a, ()> {
         self.fs.remove_dir(path)
     }
 
-    fn remove_file<'a>(&'a self, path: &'a DavPath) -> FsFuture<()> {
+    fn remove_file<'a>(&'a self, path: &'a DavPath) -> FsFuture<'a, ()> {
         self.fs.remove_file(path)
     }
 
-    fn rename<'a>(&'a self, from: &'a DavPath, to: &'a DavPath) -> FsFuture<()> {
+    fn rename<'a>(&'a self, from: &'a DavPath, to: &'a DavPath) -> FsFuture<'a, ()> {
         self.fs.rename(from, to)
     }
 
-    fn copy<'a>(&'a self, from: &'a DavPath, to: &'a DavPath) -> FsFuture<()> {
+    fn copy<'a>(&'a self, from: &'a DavPath, to: &'a DavPath) -> FsFuture<'a, ()> {
         self.fs.copy(from, to)
     }
 
     #[cfg(feature = "quota")]
-    fn get_quota<'a>(&'a self) -> FsFuture<(u64, Option<u64>)> {
+    fn get_quota<'a>(&'a self) -> FsFuture<'a, (u64, Option<u64>)> {
         use crate::cache;
         use fs_quota::*;
         use futures::future::FutureExt;

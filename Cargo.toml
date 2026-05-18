@@ -5,14 +5,14 @@ name = "webdav-server"
 # - Update html_root_url in src/main.rs
 # - Update CHANGELOG.md.
 # - Create git tag webdav-server-0.x.y
-version = "0.5.2"
+version = "0.5.3"
 
 description = "webdav/http server with support for user accounts"
 readme = "README.md"
 documentation = "https://docs.rs/webdav-server"
-repository = "https://github.com/miquels/webdav-server-rs"
-homepage = "https://github.com/miquels/webdav-server-rs"
-authors = ["Miquel van Smoorenburg <mike@langeraar.net>"]
+repository = "https://github.com/difeid/webdav-server-rs"
+homepage = "https://github.com/difeid/webdav-server-rs"
+authors = ["Miquel van Smoorenburg <mike@langeraar.net>", "Danil <git@danil.contact>"]
 edition = "2018"
 license = "Apache-2.0"
 categories = ["filesystem"]
@@ -46,30 +46,30 @@ opt-level = 3
 opt-level = 0
 
 [dependencies]
-clap = "2.33.3"
-env_logger = "0.8.3"
+clap = "2.34.0"
+env_logger = "0.11.10"
 fs-quota = { path = "fs_quota", version = "0.1.0", optional = true }
-futures = "0.3.15"
+futures = "0.3.32"
 handlebars = "3.5.5"
-headers = "0.3.4"
-http = "0.2.4"
-hyper = { version = "0.14.7", features = [ "http1", "http2", "server", "stream", "runtime" ] }
-lazy_static = "1.4.0"
-libc = "0.2.94"
-log = "0.4.14"
-nix = "0.21.0"
+headers = "0.3.9"
+http = "0.2.12"
+hyper = { version = "0.14.32", features = [ "http1", "http2", "server", "stream", "runtime" ] }
+lazy_static = "1.5.0"
+libc = "0.2.186"
+log = "0.4.29"
+nix = { version = "0.29.0", features = ["fs"] }
 pam-sandboxed = { path = "pam", version = "0.2.0", optional = true }
-percent-encoding = "2.1.0"
-regex = "1.5.4"
-rustls-pemfile = "1.0.0"
-serde = { version = "1.0.125", features = ["derive"] }
-serde_json = "1.0.64"
-socket2 = { version = "0.5.5", features = ["all"] }
-time = "0.1.42"
-tls-listener = { version = "0.5.1", features = [ "hyper-h1", "hyper-h2", "rustls" ] }
-tokio = { version = "1.5.0", features = ["full"] }
+percent-encoding = "2.3.2"
+regex = "1.12.3"
+rustls-pemfile = "1.0.4"
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.149"
+socket2 = { version = "0.5.9", features = ["all"] }
+time = "0.1.45"
+tls-listener = { version = "0.6.0", features = [ "hyper-h1", "hyper-h2", "rustls" ] }
+tokio = { version = "1.52.3", features = ["full"] }
 tokio-rustls = "0.23.4"
-toml = "0.5.8"
-url = "2.2.2"
+toml = "0.5.11"
+url = "2.5.8"
 webdav-handler = "0.2.0"
 pwhash = "1.0.0"

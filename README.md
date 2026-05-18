@@ -68,4 +68,8 @@ aforementioned frontend proxies.
 
  * © 2018, 2019 XS4ALL Internet bv
  * © 2018, 2019 Miquel van Smoorenburg
+ * © 2024 ArcticLampyrid
+ * © 2024 David Costa (zarelit)
+ * © 2024 Vigilans
+ * © 2025, 2026 Danil (difeid)
  * [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
