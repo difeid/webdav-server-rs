@@ -640,7 +640,7 @@ fn make_listener(srv: &config::Server, addr: SocketAddr) -> io::Result<tokio::ne
         s.set_only_v6(true)?;
     }
     s.set_nonblocking(true)?;
-    s.set_nodelay(true)?;
+    s.set_tcp_nodelay(true)?;
     s.set_reuse_address(true)?;
     let addr: SockAddr = addr.into();
     s.bind(&addr)?;
